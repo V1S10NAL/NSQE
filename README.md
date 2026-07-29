@@ -23,7 +23,7 @@ To compute the NSQE score, replace the paths in `NSQE.py` with the directories o
     simulated_dataset/: Simulated spectral datasets.
     run_reconstruction/: Directory for saving models during the training process of the spectral reconstruction task.
     run_classification/: Directory for saving models during the training process of the classification task.
-Data Availability: The authentic and simulated datasets, alongside the experimental results supporting this study, are available via ScienceDB: https://www.scidb.cn/s/nI3IFb
+Data Availability: The authentic and simulated datasets, alongside the experimental results supporting this study, are available via ScienceDB: https://doi.org/10.57760/sciencedb.37554
 
 ## 4. Training and Prediction Scripts
     train_reconstruction.py: Training script for the spectral reconstruction (denoising and baseline correction) models.
@@ -70,7 +70,7 @@ Natural Spectra Quality Evaluator NSQE。 一种用于评估模拟拉曼光谱�
     simulated_dataset/:模拟光谱数据集
     run_reconstruction/:用于保存光谱重建任务训练过程中的模型
     run_classification/: 用于保存分类任务训练过程中的模型
-这项论文的实测数据集和模拟数据集，以及实验运行结果可以通过scienceDB获取: https://www.scidb.cn/s/nI3IFb
+这项论文的实测数据集和模拟数据集，以及实验运行结果可以通过scienceDB获取: https://doi.org/10.57760/sciencedb.37554
 ## 4.训练与预测脚本
     train_reconstruction.py: 光谱重建（去噪与基线校正）模型的训练脚本
     fit_reconstruction.py: 调用训练好的重建模型，对额外模拟光谱数据进行处理
