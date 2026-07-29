@@ -127,6 +127,7 @@ if __name__ == '__main__':
             'dispersion': True
         }
 
+
     n_samples = X_raw.shape[0]
     max_workers = min(max(1, int(multiprocessing.cpu_count() * 0.7)), 12)
     task_args = ((X_raw[i], feature_config_full) for i in range(n_samples))
@@ -137,14 +138,14 @@ if __name__ == '__main__':
 
     X_feat = np.nan_to_num(np.array(features_list))
 
-
     tsne_model = TSNE(n_components=2, init='pca', learning_rate='auto', random_state=2026, n_jobs=-1)
 
     X_raw_tsne = tsne_model.fit_transform(StandardScaler().fit_transform(X_raw))
     X_mscn_tsne = tsne_model.fit_transform(StandardScaler().fit_transform(X_mscn))
     X_feat_tsne = tsne_model.fit_transform(StandardScaler().fit_transform(X_feat))
 
-    fig_tsne, axes_tsne = plt.subplots(1, 3, figsize=(7.09, 2.5), facecolor='white')
+    fig_tsne, axes_tsne = plt.subplots(2, 2, figsize=(6, 6), facecolor='white')
+    axes_tsne = axes_tsne.flatten()
 
     custom_colors = ['#95003E', '#EB6046', '#F8D61D', '#57B1AB', '#73A7D3', '#2A7BBF', '#584A99', '#292247']
     cmap_polymer = mcolors.ListedColormap(custom_colors)
@@ -183,6 +184,7 @@ if __name__ == '__main__':
 
     axes_tsne[1].text(0.04, 0.96, "(b)", transform=axes_tsne[1].transAxes, fontweight='bold', fontsize=8, va='top', ha='left')
     axes_tsne[1].set_xlabel("t-SNE Dimension 1")
+    axes_tsne[1].set_ylabel("t-SNE Dimension 2")
     axes_tsne[1].set_box_aspect(1)
 
     for idx, mat_name in enumerate(materials):
@@ -197,13 +199,14 @@ if __name__ == '__main__':
 
     axes_tsne[2].text(0.04, 0.96, "(c)", transform=axes_tsne[2].transAxes, fontweight='bold', fontsize=8, va='top', ha='left')
     axes_tsne[2].set_xlabel("t-SNE Dimension 1")
+    axes_tsne[2].set_ylabel("t-SNE Dimension 2")
     axes_tsne[2].set_box_aspect(1)
 
     handles, labels = axes_tsne[0].get_legend_handles_labels()
-    lgd = axes_tsne[0].legend(handles, labels, loc='center right', bbox_to_anchor=(-0.40, 0.5),
-                              frameon=False, fontsize=8, ncol=1, markerscale=3.0)
+    axes_tsne[3].axis('off')
+    axes_tsne[3].legend(handles, labels, loc='center', frameon=False, fontsize=8, ncol=2, markerscale=3.0)
 
-    plt.tight_layout(w_pad=1.5)
+    plt.tight_layout(w_pad=1.5, h_pad=1.5)
     tsne_filename_base = 'tSNE_FigS3'
-    plt.savefig(f'{tsne_filename_base}.png', dpi=600, bbox_inches='tight', facecolor='w', transparent=False)
+    plt.savefig(f'{tsne_filename_base}.png', dpi=1200, bbox_inches='tight', facecolor='w', transparent=False)
     plt.show()
