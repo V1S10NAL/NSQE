@@ -40,8 +40,10 @@ Data Availability: The authentic and simulated datasets, alongside the experimen
     fit_fid.py: Script for calculating the one dimensional Fréchet Inception Distance (FID) evaluation metric.
     fit_is.py: Script for calculating the one dimensional Inception Score (IS) evaluation metric.
     run/: Directory containing the pretrained classifier models utilized for feature extraction.
-
-## 6.Output Result Tables
+    
+## 6.Other
+    tSNE_FigS3.py: Plot for FigS3.
+## 7.Output Result Tables
     Batch_Evaluation_Results.xlsx: Performance of models trained on simulated datasets 1 to 12 when evaluated against the additional test set (dataset_extra_reconstruction).
     NSQE_Correlation coefficient.xlsx: Correlations between the evaluation scores of simulated datasets 1 to 12 and the regression metrics of the additional test set (dataset_extra_reconstruction).
     generative model assessment metrics.xlsx: Evaluation scores for simulated datasets 13 to 24.
@@ -62,7 +64,6 @@ Natural Spectra Quality Evaluator NSQE。 一种用于评估模拟拉曼光谱�
     NSQE.py:
     baseline_npy_path = 'baseline_data.npy' #计算基准MVG的数据
     test_npy_path = 'test_dataset.npy'      #待计算的数据
-
 
 ## 3.文件夹
     measured_dataset/:实测微塑料光谱数据集
@@ -85,8 +86,11 @@ Natural Spectra Quality Evaluator NSQE。 一种用于评估模拟拉曼光谱�
     fit_fid.py:用于计算一维 Fréchet Inception Distance (FID) 评价指标
     fit_is.py:用于计算一维 Inception Score (IS) 评价指标
     run/:提取特征的预训练分类器模型
-
-## 6.输出结果表格
+    
+## 6.其他
+    tSNE_FigS3.py:用于FigS3 t-SNE绘图
+    
+## 7.输出结果表格
     Batch_Evaluation_Results.xlsx: 模拟数据集1-12训练的模型在额外测试集(dataset_extra_reconstruction)的性能
     NSQE_Correlation coefficient.xlsx: 模拟数据集1-12的评估分数与额外测试集(dataset_extra_reconstruction)回归指标的相关性
     generative model assessment metrics.xlsx: 模拟数据集13-24的评估分数
